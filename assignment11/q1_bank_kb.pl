@@ -19,9 +19,10 @@ month(7). month(8). month(9). month(10). month(11). month(12).
 %%%%% SECTION: q1_kb
 %%%%% You should put the atomic statements in your KB below in this section
 
-
-
-
+% create 10 people
+hasAccount(Name, Bank, Balance)
+lives(Name, City)
+created(Name, Bank, M, Y)
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
