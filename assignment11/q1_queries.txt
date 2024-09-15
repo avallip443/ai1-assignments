@@ -1,0 +1,69 @@
+
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: 
+%%%%% NAME:
+%%%%% NAME:
+%
+% Add your answer queries below. Use the following format.
+% 
+% %%%%% QUERY 2: Retrieves the block that is on top of blockA
+% on(X, blockA).
+%
+% where 2 is the number of the query. Omit the "%" on the line with the query below.
+% Don't forget to end queries with a period.
+%
+% Each query below is labelled with an English description of what should be queried for.
+
+
+%%%%%% QUERY 1: Does Ada Lovelace live in San Francisco?
+
+
+
+%%%%%% QUERY 2: What is the balance of Alan Turing's account with CIBC?
+
+
+
+%%%%%% QUERY 3: Does anyone have an account at both BMO and Scotiabank, and if so, who is it?
+
+
+
+%%%%%% QUERY 4: Is there a person with an account at Wells Fargo that does not live in New York?
+
+
+
+%%%%%% QUERY 5: Does anyone who opened an account with CIBC in April 2018 have more than 5000 in their CIBC account?
+
+
+
+%%%%%% QUERY 6: Does any bank have more than one person who opened an account in January 2024?
+
+
+
+%%%%%% QUERY 7: Did any person living outside of Winnipeg open more than one account in the same year?
+
+
+
+%%%%%% QUERY 8: Is there a month in 2017 in which no one opened an account at the National Bank of Canada?
+
+
+
+%%%%%% QUERY 9: Did anyone open 3 different accounts in 3 consecutive years?
+
+
+
+%%%%%% QUERY 10: Who opened the oldest account ever opened at BMO?
+ 
+
+
+%%%%%% QUERY 11: Who has the largest account created at CIBC in 2010 or later, of anyone who lives in Toronto?
+
+
+
+
+%%%%% INTERACTION
+%
+% Add your interaction below.
+% 
