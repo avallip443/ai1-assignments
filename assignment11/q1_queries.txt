@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Carole Youssef
+%%%%% NAME: Micah Pascua
+%%%%% NAME: Arathi Vallipuranathan
 %
 % Add your answer queries below. Use the following format.
 % 
@@ -19,7 +19,7 @@
 
 
 %%%%%% QUERY 1: Does Ada Lovelace live in San Francisco?
-
+lives(ada_lovelace, san_francisco).
 
 
 %%%%%% QUERY 2: What is the balance of Alan Turing's account with CIBC?
