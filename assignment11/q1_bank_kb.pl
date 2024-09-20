@@ -22,13 +22,15 @@ hasAccount(ada_lovelace, cibc, 500).
 hasAccount(alan_turing, cibc, 7000).
 hasAccount(tom_cruise, rbc, 1000).
 hasAccount(ada_lovelace, bmo, 350).
+hasAccount(rihanna, td, 7600).
+hasAccount(ada_lovelace, td, 870).
 hasAccount(johnny_depp, bmo, 6000).
 hasAccount(jim_carrey, wells_fargo, 450).
-hasAccount(elon_musk, nbc, 550).
+hasAccount(elon_musk, national_bank_of_canada, 550).
 hasAccount(beyonce, td, 2450).
 hasAccount(rihanna, rbc, 100).
 hasAccount(johnny_depp, scotiabank, 8900).
-hasAccount(bill_gates, nbc, 10000).
+hasAccount(bill_gates, national_bank_of_canada, 10000).
 hasAccount(tom_holland, scotiabank, 5000).
 
 lives(ada_lovelace, san_francisco).
@@ -45,16 +47,17 @@ lives(tom_holland, new_york).
 created(ada_lovelace, cibc, 5, 2013).
 created(alan_turing, cibc, 4, 2018).
 created(tom_cruise, rbc, 1, 2024).
-created(ada_lovelace, bmo, 6, 2013).
+created(ada_lovelace, bmo, 1, 2003).
+created(rihanna, td, 5, 2024).
+created(ada_lovelace, td, 7, 2015).
 created(johnny_depp, bmo, 3, 2005).
 created(jim_carrey, wells_fargo, 11, 2017).
-created(elon_musk, nbc, 4, 2017).
+created(elon_musk, national_bank_of_canada, 4, 2017).
 created(beyonce, td, 12, 2006).
 created(rihanna, rbc, 1, 2024).
 created(johnny_depp, scotiabank, 7, 2010).
-created(bill_gates, nbc, 8, 2015).
+created(bill_gates, national_bank_of_canada, 8, 2015).
 created(tom_holland, scotiabank, 5, 2018).
-
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
