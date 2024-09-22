@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Arathi Vallipuranathan, 501168322
+%%%%% NAME: Micah Pascua
+%%%%% NAME: Carole Youssef
 %
 % Add the required rules in the corresponding sections. 
 % If you put the rules in the wrong sections, you will lose marks.
@@ -35,6 +35,16 @@ pathClear(r5, r6).
 %%%%% You may also define helper predicates in this section
 %%%%% DO NOT PUT ATOMIC FACTS for robot, hasBall, or pathClear below.
 
+symmetricPath(R1, R2) :- robot(R1), robot(R2), pathClear(R1, R2).
+symmetricPath(R1, R2) :- robot(R1), robot(R2), pathClear(R2, R1).
+
+canPass(R1, R2, M) :- M >= 1, symmetricPath(R1, R2).
+canPass(R1, R2, M) :- M >= 2, symmetricPath(R1, R), robot(R), canPass(R, R2, M-1).
+
+canScore(R, M) :- M >= 1, hasBall(R), pathClear(R, net).  % R has ball and scores directly
+canScore(R, M) :- M >= 2, hasBall(S), canPass(S, R, M-1), pathClear(R, net).  % R doesn't have ball but scores directly
 
 %%%%% END
 % DO NOT PUT ANY ATOMIC PROPOSITIONS OR LINES BELOW
+
+% ['q3_robocup.pl'].
