@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Arathi Vallipuranathan, 501168322
+%%%%% NAME: Micah Pascua
+%%%%% NAME: Carole Youssef
 %
 % Add your queries below. Please use the following format
 % 
@@ -18,52 +18,53 @@
 % Don't forget to end queries with a period.
 
 %%%%%% QUERY 1
-% EXPLANATION: 
-
+% EXPLANATION: Checks if r1 can pass to r2 within 1 pass. Since pathClear(r2, r1) is in the KB, this should be true.
+canPass(r2, r1, 1).
 
 
 %%%%%% QUERY 2
-% EXPLANATION: 
-
+% EXPLANATION: Checks if r1 can pass to r2 within 1 pass. Since pathClear(r2, r1) is in the KB, canPass is symmetrical, and the previous query with a smaller limit to passes holds true, this should be true as well.
+canPass(r1, r2, 3).
 
 
 %%%%%% QUERY 3
-% EXPLANATION: 
-
+% EXPLANATION: Checks if r6 can pass to r4 within 5 passes. Since pathClear(r5, r6), pathClear(r1, r5), pathClear(r3, r1), and pathClear(r3, r4) (total of 4 passes) exist in the KB, this should be true.
+canPass(r6, r4, 5).
 
 
 %%%%%% QUERY 4
-% EXPLANATION: 
-
+% EXPLANATION: Checks if r6 can pass to r1 within 1 pass. Since there is no direct path from r6 to r1 in the KB, this should be false.
+canPass(r6, r1, 1).
 
 
 %%%%%% QUERY 5
-% EXPLANATION: 
-
+% EXPLANATION: Finds all R1 that can pass to R2 within 2 passes. This should return unqiue values (r1, r2), (r1, r3), (r1, r5), (r2, r3), (r3, r4), and (r5, r6) (this should be doubled to account for symmetry in pathClear). 
+canPass(R1, R2, 1).
 
 
 %%%%%% QUERY 6
-% EXPLANATION: 
-
+% EXPLANATION: Checks if robot r3 can score within 1 pass. Since r3 has the ball and pathClear(r3, net) is in the KB this should be true.
+canScore(r3, 1).
 
 
 %%%%%% QUERY 7
-% EXPLANATION: 
-
+% EXPLANATION: Checks if robot r1 can score within 2 passes. Since r3 has the ball and pathClear(r3, r1) and pathClear(r1, net) are in the KB, this should be true.
+canScore(r1, 2).
 
 
 %%%%%% QUERY 8
-% EXPLANATION: 
-
+% EXPLANATION: Checks if r1 can score within 3 passes. Since the above query holds true with a smaller limit of passes, this should be true as well.
+canScore(r1, 3).
 
 
 %%%%%% QUERY 9
-% EXPLANATION: 
+% EXPLANATION: Checks if r2 can score within 3 passes. Even though r2 can receive the ball in at most M-1 steps, it cannot direclty shoot at the net, so this should be false.
+canScore(r2, 3).
 
 
 %%%%%% QUERY 10
-% EXPLANATION: 
-
+% EXPLANATION: Finds all R that can score within 2 passes. This should return r1, r3, and r4 as possible values for R.
+canScore(R, 2).
 
 
 %%%%%% YOU MAY CHOOSE TO ADD MORE THAN 10 QUERIES HERE
