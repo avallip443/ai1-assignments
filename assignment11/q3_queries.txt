@@ -75,3 +75,88 @@ canScore(R, 2).
 %
 % Add your interaction below.
 % 
+
+?- canPass(r2, r1, 1).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- canPass(r1, r2, 3).
+Yes (0.00s cpu, solution 1, maybe more)
+Yes (0.00s cpu, solution 2, maybe more)
+Yes (0.00s cpu, solution 3, maybe more)
+Yes (0.00s cpu, solution 4, maybe more)
+Yes (0.00s cpu, solution 5, maybe more)
+Yes (0.00s cpu, solution 6, maybe more)
+No (0.00s cpu)
+
+?- canPass(r6, r4, 5).
+Yes (0.00s cpu, solution 1, maybe more)
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+?- canPass(r6, r1, 1).
+No (0.00s cpu)
+
+?- canPass(R1, R2, 1).
+R1 = r1
+R2 = r5
+Yes (0.00s cpu, solution 1, maybe more)
+R1 = r2
+R2 = r1
+Yes (0.00s cpu, solution 2, maybe more)
+R1 = r3
+R2 = r1
+Yes (0.00s cpu, solution 3, maybe more)
+R1 = r3
+R2 = r2
+Yes (0.00s cpu, solution 4, maybe more)
+R1 = r3
+R2 = r4
+Yes (0.00s cpu, solution 5, maybe more)
+R1 = r5
+R2 = r6
+Yes (0.00s cpu, solution 6, maybe more)
+R1 = r1
+R2 = r2
+Yes (0.00s cpu, solution 7, maybe more)
+R1 = r1
+R2 = r3
+Yes (0.00s cpu, solution 8, maybe more)
+R1 = r2
+R2 = r3
+Yes (0.00s cpu, solution 9, maybe more)
+R1 = r4
+R2 = r3
+Yes (0.00s cpu, solution 10, maybe more)
+R1 = r5
+R2 = r1
+Yes (0.00s cpu, solution 11, maybe more)
+R1 = r6
+R2 = r5
+Yes (0.00s cpu, solution 12, maybe more)
+No (0.00s cpu)
+
+?- canScore(r3, 1).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- canScore(r1, 2).
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- canScore(r1, 3).
+Yes (0.00s cpu, solution 1, maybe more)
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+?- canScore(r2, 3).
+No (0.00s cpu)
+
+?- canScore(R, 2).
+R = r3
+Yes (0.00s cpu, solution 1, maybe more)
+R = r1
+Yes (0.00s cpu, solution 2, maybe more)
+R = r4
+Yes (0.00s cpu, solution 3, maybe more)
+No (0.00s cpu)
