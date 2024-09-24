@@ -3,9 +3,9 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: 
-%%%%% NAME:
-%%%%% NAME:
+%%%%% NAME: Micah Pascua
+%%%%% NAME: Carole Youssef
+%%%%% NAME: Arathi Vallipuranathan
 %
 % Add your queries below. Please use the following format
 % 
@@ -18,51 +18,52 @@
 % Don't forget to end queries with a period.
 
 %%%%%% QUERY 1
-% EXPLANATION: 
-
+% EXPLANATION: Checks the subtotal of john's account at cibc
+subtotal(john, cibc, Balance).
 
 
 %%%%%% QUERY 2
-% EXPLANATION: 
-
+% EXPLANATION: Checks the subtotal of john's account at either cibc or bmo
+subtotal(john, Bank, Balance).
 
 
 %%%%%% QUERY 3
-% EXPLANATION: 
-
+% EXPLANATION: Checks the accrued interest for jane's account at cibc
+accruedInterest(jane, cibc, I).
 
 
 %%%%%% QUERY 4
-% EXPLANATION: 
-
+% EXPLANATION: Checks the accrued interest for john's account at bmo
+accruedInterest(john, bmo, I).
 
 
 %%%%%% QUERY 5
-% EXPLANATION: 
-
+% EXPLANATION: Checks the accrued penalty for either john or jane at cibc
+accruedPenalty(Name, cibc, P).
 
 
 %%%%%% QUERY 6
-% EXPLANATION: 
-
+% EXPLANATION: Checks the accrued penalty for john's account at either cibc or bmo
+accruedPenalty(john, Bank, P).
 
 
 %%%%%% QUERY 7
-% EXPLANATION: 
-
+% EXPLANATION: Checks the end of month balance for jane's account at bmo
+endOfMonthBalance(jane, bmo, Balance).
 
 
 %%%%%% QUERY 8
-% EXPLANATION: 
-
+% EXPLANATION: Checks the end of month balance for john's account at cibc
+endOfMonthBalance(john, cibc, Balance).
 
 
 %%%%%% QUERY 9
-% EXPLANATION: 
-
+% EXPLANATION: Checks the end of month balance for either john or jane's account at either cibc or bmo
+endOfMonthBalance(Name, Bank, Balance).
 
 %%%%%% QUERY 10
-% EXPLANATION: 
+% EXPLANATION: Checks the end of month balance for either john or jane's account at all banks
+endOfMonthBalance(Name, Balance).
 
 
 
@@ -74,3 +75,80 @@
 %
 % Add your interaction below.
 % 
+
+?- subtotal(john, cibc, Balance).
+Balance = -100
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- subtotal(john, Bank, Balance).
+Bank = cibc
+Balance = -100
+Yes (0.00s cpu, solution 1, maybe more)
+Bank = bmo
+Balance = 1300
+Yes (0.00s cpu, solution 2)
+
+?- accruedInterest(jane, cibc, I).
+I = 7.5
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- accruedInterest(john, bmo, I).
+I = 0
+Yes (0.00s cpu)
+
+?- accruedPenalty(Name, cibc, P).
+Name = john
+P = 20
+Yes (0.00s cpu, solution 1, maybe more)
+Name = jane
+P = 0
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
+
+?- accruedPenalty(john, Bank, P).
+Bank = cibc
+P = 20
+Yes (0.00s cpu, solution 1, maybe more)
+Bank = bmo
+P = 0
+Yes (0.00s cpu, solution 2)
+
+?- endOfMonthBalance(jane, bmo, Balance).
+Balance = 2156.45
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- endOfMonthBalance(john, cibc, Balance).
+Balance = -120
+Yes (0.00s cpu, solution 1, maybe more)
+No (0.00s cpu)
+
+?- endOfMonthBalance(Name, Bank, Balance).
+Name = john
+Bank = cibc
+Balance = -120
+Yes (0.00s cpu, solution 1, maybe more)
+Name = jane
+Bank = cibc
+Balance = 1507.5
+Yes (0.00s cpu, solution 2, maybe more)
+Name = john
+Bank = bmo
+Balance = 1300
+Yes (0.00s cpu, solution 3, maybe more)
+Name = jane
+Bank = bmo
+Balance = 2156.45
+Yes (0.00s cpu, solution 4, maybe more)
+No (0.00s cpu)
+
+?- endOfMonthBalance(Name, Balance).
+Name = john
+Balance = 1180
+Yes (0.00s cpu, solution 1, maybe more)
+Name = jane
+Balance = 3663.95
+Yes (0.00s cpu, solution 2, maybe more)
+No (0.00s cpu)
