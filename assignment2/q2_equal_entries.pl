@@ -26,12 +26,12 @@ equalEntries(List1, List2, EqualItems) :-
 equalEntriesHelp([], [], []).
 
 % recursive case: compare List1 head and List2 head
-% if head elements are equal, put true in list and recursively call for the rest of the list (tail)
+% if head elements are equal, put true in EqualItems list and recursively call for the rest of the lists (tails)
 equalEntriesHelp([H1 | T1], [H2 | T2], [true | EqualItems]) :-
     H1 = H2,
     equalEntries(T1, T2, EqualItems).
 
-% if head elements are not equal, put false in list and recursively call for the rest of the list (tail)
+% if head elements are not equal, put false in EqualItems list and recursively call for the rest of the lists (tails)
 equalEntriesHelp([H1 | T1], [H2 | T2], [false | EqualItems]) :-
     not H1 = H2,
     equalEntries(T1, T2, EqualItems).
