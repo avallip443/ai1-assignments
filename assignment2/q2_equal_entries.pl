@@ -33,7 +33,7 @@ equalEntriesHelp([H1 | T1], [H2 | T2], [true | EqualItems]) :-
 
 % if elements are not equal, put false in list
 equalEntriesHelp([H1 | T1], [H2 | T2], [false | EqualItems]) :-
-    H1 \= H2,
+    not H1 = H2,
     equalEntries(T1, T2, EqualItems).
 
 
