@@ -31,7 +31,6 @@ nestedFindDepth([], Item, Depth) :-
     false.
 
 %part b
-
 nestedFindIndex([Head|Tail], Item, Depth, Index) :-
     Head = Item,
     Depth is 0,
@@ -44,4 +43,4 @@ nestedFindIndex([Head|Tail], Item, Depth, Index) :-
 
 nestedFindIndex([Head|Tail], Item, Depth, Index) :-
     nestedFindIndex(Tail, Item, Depth, TailIndex),
-    Index is TailIndex+1. 
+    Index is TailIndex + 1. 
