@@ -2,7 +2,7 @@
 % If you only have 2 group members, leave the last space blank
 %
 %%%%%
-%%%%% NAME: Arathi Vallipuranathan
+%%%%% NAME: Arathi Vallipuranathan, 501168322
 %%%%% NAME: Micah Pascua
 %%%%% NAME: Carole Youssef
 %
@@ -29,9 +29,9 @@ symmetricPath(R1, R2) :- robot(R1), robot(R2), pathClear(R1, R2).
 symmetricPath(R1, R2) :- robot(R1), robot(R2), pathClear(R2, R1).
 
 canPass(R1, R2, M, [R1, R2]) :- M >= 1, symmetricPath(R1, R2).   % direct pass
-canPass(R1, R2, M, [R1 | T]) :- M >= 2, symmetricPath(R1, R), robot(R), canPass(R, R2, M-1, T).
+canPass(R1, R2, M, [R1 | T]) :- M >= 2, symmetricPath(R1, R), robot(R), NewM is M-1, canPass(R, R2, NewM, T), not(member(R1, T)).
 
 canScore(R, M, [R, net]) :- M >= 1, hasBall(R), pathClear(R, net).  % R has ball and scores directly
-canScore(R, M, Path) :- M >= 2, hasBall(S), canPass(S, R, M-1, PathToR), pathClear(R, net), append(PathToR, [net], Path).  % R doesn't have ball but scores directly
+canScore(R, M, Path) :- M >= 2, hasBall(S), NewM is M-1, canPass(S, R, NewM, PathToR), pathClear(R, net), append(PathToR, [net], Path).  % R doesn't have ball but scores directly
 
 % ['q5_robocup.pl'].
