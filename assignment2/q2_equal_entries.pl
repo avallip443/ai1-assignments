@@ -15,7 +15,7 @@
 %%%%% SECTION: equalEntries
 %%%%% Put your rules for equalEntries below
 
-% if lists are equal, EqualItemsHelp list is made and boolean list returned
+% if lists are of equal length, the boolean EqualItems list is made and returned
 equalEntries(List1, List2, EqualItems) :-
     length(List1, L1),
     length(List2, L2),
@@ -26,12 +26,12 @@ equalEntries(List1, List2, EqualItems) :-
 equalEntriesHelp([], [], []).
 
 % recursive case: compare List1 head and List2 head
-% if equal, put true in list
+% if elements are equal, put true in list
 equalEntriesHelp([H1 | T1], [H2 | T2], [true | EqualItems]) :-
     H1 = H2,
     equalEntries(T1, T2, EqualItems).
 
-% if false, put false in list
+% if elements are not equal, put false in list
 equalEntriesHelp([H1 | T1], [H2 | T2], [false | EqualItems]) :-
     H1 \= H2,
     equalEntries(T1, T2, EqualItems).
