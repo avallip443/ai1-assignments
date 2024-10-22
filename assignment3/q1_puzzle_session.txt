@@ -1,0 +1,77 @@
+% Enter the names of your group members below.
+% If you only have 2 group members, leave the last space blank
+%
+%%%%%
+%%%%% NAME: Micah Pascua 
+%%%%% NAME: Carole Youssef
+%%%%% NAME: Arathi Vallipuranathan
+%
+% Add the required rules in the corresponding sections. 
+% If you put the rules in the wrong sections, you will lose marks.
+%
+% You may add additional comments as you choose but DO NOT MODIFY the comment lines below
+%
+
+%%%%% SECTION: puzzleGenerateAndTestSession
+%%%%% Put your session for generate and test below
+
+% computer time using "?- Start is cputime, solve_and_print, End is cputime, Time is End - Start."
+
+Start = 28.15
+End = 29.62
+Time = 1.4700000000000024
+Yes (1.47s cpu, solution 1, maybe more)
+
+% output of code: 
+
+Value of J: 3
+Value of E: 0
+Value of T: 8
+Value of A: 1
+Value of X: 5
+Value of L: 4
+Value of O: 6
+Value of V: 2
+
+Therefore: 
+
+          308
+  *        15
+---------------
+  +      1540
+         308 .
+---------------
+         4620
+
+
+
+%%%%% SECTION: puzzleInterleavingSession
+%%%%% Put your session for generate and test below
+
+% computer time using "?- Start is cputime, solve_and_print, End is cputime, Time is End - Start."
+
+Start = 30.37
+End = 30.38
+Time = 0.00999999999999801
+Yes (0.01s cpu, solution 1, maybe more)
+
+% output of code: 
+
+Value of J: 3
+Value of E: 0
+Value of T: 8
+Value of A: 1
+Value of X: 5
+Value of L: 4
+Value of O: 6
+Value of V: 2
+
+Therefore: 
+
+          308
+  *        15
+---------------
+  +      1540
+         308 .
+---------------
+         4620
