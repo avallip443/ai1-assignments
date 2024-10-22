@@ -68,7 +68,7 @@ solve([J,E,T,A,X,L,O,V]) :-
 
     A is C100,
 
-    T is(T*A) mod 10, C2 is (T*A) // 10,
+    T is (T*A) mod 10, C2 is (T*A) // 10,
     E is ((E*A) + C2) mod 10, C20 is ((E*A) + C2) // 10,
 
     J is ((J*A) + C20),
