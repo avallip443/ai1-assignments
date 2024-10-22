@@ -17,10 +17,10 @@
 
 % computer time using "?- Start is cputime, solve_and_print, End is cputime, Time is End - Start."
 
-Start = 28.15
-End = 29.62
-Time = 1.4700000000000024
-Yes (1.47s cpu, solution 1, maybe more)
+Start = 14.42
+End = 15.79
+Time = 1.3699999999999992
+Yes (1.37s cpu, solution 1, maybe more)
 
 % output of code: 
 
@@ -50,9 +50,9 @@ Therefore:
 
 % computer time using "?- Start is cputime, solve_and_print, End is cputime, Time is End - Start."
 
-Start = 30.37
-End = 30.38
-Time = 0.00999999999999801
+Start = 13.85
+End = 13.86
+Time = 0.0099999999999997868
 Yes (0.01s cpu, solution 1, maybe more)
 
 % output of code: 
