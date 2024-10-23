@@ -184,7 +184,7 @@ solve_and_print :-
     write('Plant 4: Fertilizer = '), write(F4), write(', Height = '), write(H4), write(', Yield = '), write(Y4), write(', Weight = '), write(W4), nl,
     write('Plant 5: Fertilizer = '), write(F5), write(', Height = '), write(H5), write(', Yield = '), write(Y5), write(', Weight = '), write(W5), nl.
 
-cpu_time(Predicate) :-
+my_cpu_time(Predicate) :-
     statistics(cputime, T1),  
     call(Predicate),          
     statistics(cputime, T2),  
