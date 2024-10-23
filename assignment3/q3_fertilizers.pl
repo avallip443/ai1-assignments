@@ -147,7 +147,7 @@ solve([plant(1, F1, H1, Y1, W1), plant(2, F2, H2, Y2, W2), plant(3, F3, H3, Y3, 
             plant(3, F3, H3, Y3, W3), 
             plant(4, F4, H4, Y4, W4), 
             plant(5, F5, H5, Y5, W5)]),
-    YieldEgg is Y1 / 2, WeightEgg is MaxWeight,
+    Y1 is YieldEgg * 2, WeightEgg is MaxWeight,
 
     % condition 6: seawedd-fertilized plant is tallest and has least yield
     minList([Y1, Y2, Y3, Y4, Y5], MinYield),
@@ -193,4 +193,3 @@ my_cpu_time(Predicate) :-
 
 
 % ['q3_fertilizers.pl'].
-
