@@ -22,7 +22,7 @@ When I run the program from solve_and_print, I first initalize all attributes fo
 %%%%% SECTION: fertilizersSession
 %%%%% Put your session for the network problem below
 
-1 ?- cpu_time(solve([plant(1, F1, H1, Y1, W1), plant(2, F2, H2, Y2, W2), plant(3, F3, H3, Y3, W3), plant(4, F4, H4, Y4, W4), plant(5, F5, H5, Y5, W5)])).
+1 ?- my_cpu_time(solve([plant(1, F1, H1, Y1, W1), plant(2, F2, H2, Y2, W2), plant(3, F3, H3, Y3, W3), plant(4, F4, H4, Y4, W4), plant(5, F5, H5, Y5, W5)])).
 CPU time: 0.0 seconds
 F1 = bone_meal,
 H1 = 2,
@@ -44,7 +44,7 @@ Y5 = 21,
 W5 = 14 ;
 false.
 
-2 ?- cpu_time(solve_and_print). 
+2 ?- my_cpu_time(solve_and_print). 
 Plant 1: Fertilizer = bone_meal, Height = 2, Yield = 12, Weight = 3
 Plant 2: Fertilizer = seaweed, Height = 7, Yield = 4, Weight = 9
 Plant 3: Fertilizer = compost, Height = 1, Yield = 9, Weight = 10
