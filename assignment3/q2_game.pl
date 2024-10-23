@@ -98,14 +98,12 @@ solve(Tournament) :-
     rich_hill_results(Tournament, 1, 1),
 
     %each team plays exactly 4 times with 4 different teams
-    unique_matchups(Tournament).
+    diff_matches(Tournament).
     
-
-
 
 %helpers
 
-% all results in the tournament are valid
+% checks if all results are valid
 validate_results([]).
 validate_results([Round|Rest]) :-
     validate_round_res(Round),
@@ -120,7 +118,7 @@ opposite_res(w, l).
 opposite_res(l, w).
 opposite_res(d, d).
 
-% No draws in the first three rounds
+%first three rounds have no draws
 first_three_no_draws([Round1, Round2, Round3|_]) :-
     no_draws(Round1),
     no_draws(Round2),
@@ -129,20 +127,19 @@ first_three_no_draws([Round1, Round2, Round3|_]) :-
 no_draws([[_, Result1, _, Result2], [_, Result3, _, Result4]]) :-
     not Result1 = d, not Result2 = d, not Result3 = d, not Result4 = d.
 
-% All teams in the tournament are valid
+%checks if all teams are valid (no team plays against themselves)
 validate_teams([]).
 validate_teams([Round|Rest]) :-
     validate_round_teams(Round),
     validate_teams(Rest).
 
-% Check if teams in a round are valid and not playing against themselves
 validate_round_teams([[Team1, _, Team2, _], [Team3, _, Team4, _]]) :-
     team(Team1), team(Team2), team(Team3), team(Team4),
     not Team1 = Team2, not Team1 = Team3, not Team1 = Team4,
     not Team2 = Team3, not Team2 = Team4,
     not Team3 = Team4.
 
-% Check Toronto's results in the first two rounds
+%Toronto had one win and one loss from the first two rounds
 tor_first_two_results([Round1, Round2|_]) :-
     tor_round(Round1, Result1),
     tor_round(Round2, Result2),
@@ -153,34 +150,31 @@ tor_first_two_results([Round1, Round2|_]) :-
     tor_round(Round2, Result2),
     (Result1 = l, Result2 = w).
 
-% Find Toronto's result in a given round
 tor_round([[toronto, Result, _, _], _], Result).
 tor_round([[_, _, toronto, Result], _], Result).
 tor_round([_, [toronto, Result, _, _]], Result).
 tor_round([_, [_, _, toronto, Result]], Result).
 
-% Check Oakville's wins in the first three rounds
+%Oakville won twice in the first three matches
 oak_first_three_results([Round1, Round2, Round3|_], 2) :-
     oak_wins(Round1, Win1),
     oak_wins(Round2, Win2),
     oak_wins(Round3, Win3),
     Win1 + Win2 + Win3 =:= 2.
 
-% Check if Oakville won in a given round
 oak_wins([[oakville, w, _, _], _], 1).
 oak_wins([[_, _, oakville, w], _], 1).
 oak_wins([_, [oakville, w, _, _]], 1).
 oak_wins([_, [_, _, oakville, w]], 1).
 oak_wins(_, 0).
 
-% All teams plays once with each other
-unique_matchups(Tournament) :-
-    empty_matchup_list(Empty),
-    process_tournament(Tournament, Empty, Final),
-    all_teams_matched(Final).
+%checks if each team plays exactly 4 rounds with 4 different teams
+diff_matches(Tournament) :-
+    empty_match_list(Empty),
+    tourn_process(Tournament, Empty, Final),
+    all_matched(Final).
 
-% Initialize an empty matchup list
-empty_matchup_list([
+empty_match_list([
     [oakville, pickering, no],
     [oakville, richmond_hill, no],
     [oakville, scarborough, no],
@@ -193,71 +187,60 @@ empty_matchup_list([
     [scarborough, toronto, no]
 ]).
 
-% Process the tournament to check for unique matchups
-process_tournament([], Matches, Matches).
-process_tournament([Round|Rest], CurrentList, Final) :-
+tourn_process([], Matches, Matches).
+tourn_process([Round|Rest], CurrentList, Final) :-
     process_round(Round, CurrentList, NextList),
-    process_tournament(Rest, NextList, Final).
+    tourn_process(Rest, NextList, Final).
 
-% Process a round to update matchups
 process_round([], Matches, Matches).
 process_round([[Team1, _, Team2, _]|Rest], CurrentList, Final) :-
     update_matchup(Team1, Team2, CurrentList, NextList),
     process_round(Rest, NextList, Final).
 
-% Update the matchup list
 update_matchup(Team1, Team2, [[Team1, Team2, _]|Rest], [[Team1, Team2, yes]|Rest]).
 update_matchup(Team1, Team2, [[Team2, Team1, _]|Rest], [[Team2, Team1, yes]|Rest]).
 update_matchup(Team1, Team2, [Match|Rest], [Match|UpdatedRest]) :-
 update_matchup(Team1, Team2, Rest, UpdatedRest).
 
-% Check if all teams have been matched
-all_teams_matched([]).
-all_teams_matched([[_, _, yes]|Rest]) :- all_teams_matched(Rest).
+all_matched([]).
+all_matched([[_, _, yes]|Rest]) :- all_matched(Rest).
 nth1(1, [H|_], H).
     nth1(N, [_|T], X) :- N > 1, N1 is N - 1, nth1(N1, T, X).
 
 
-% Check Richmond Hill's record before the fourth round
+%Richmond hill's results before the fourth round
 rich_hill_results(Tournament, Wins, Losses) :-
     rich_hill_helper(Tournament, 0, 0, Wins, Losses, 3).
 
-% Base case: when we've checked all rounds we care about
-rich_hill_helper(_, Wins, Losses, Wins, Losses, 0).
+rich_hill_helper(_, Wins, Losses, Wins, Losses, 0). %base case
 
-% Recursive case: Richmond Hill won this round
-rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :-
+rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :- %wins round
     rich_hill_round_res(Round, w),
     NextWins is CurrWins + 1,
     NextRoundsLeft is RoundsLeft - 1,
     rich_hill_helper(Rest, NextWins, CurrLosses, Wins, Losses, NextRoundsLeft).
 
-% Recursive case: Richmond Hill lost this round
-rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :-
+rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :- %loses round
     rich_hill_round_res(Round, l),
     NextLosses is CurrLosses + 1,
     NextRoundsLeft is RoundsLeft - 1,
     rich_hill_helper(Rest, CurrWins, NextLosses, Wins, Losses, NextRoundsLeft).
 
-% Recursive case: Richmond Hill drew this round
-rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :-
+rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :- %draws round
     rich_hill_round_res(Round, d),
     NextRoundsLeft is RoundsLeft - 1,
     rich_hill_helper(Rest, CurrWins, CurrLosses, Wins, Losses, NextRoundsLeft).
 
-% Recursive case: Richmond Hill didn't play this round
-rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :-
+rich_hill_helper([Round|Rest], CurrWins, CurrLosses, Wins, Losses, RoundsLeft) :- %didn't play
     rich_hill_round_res(Round, n),
     NextRoundsLeft is RoundsLeft - 1,
     rich_hill_helper(Rest, CurrWins, CurrLosses, Wins, Losses, NextRoundsLeft).
 
-% Find Richmond Hill's result in a given round
 rich_hill_round_res([[richmond_hill, Result, _, _], _], Result).
 rich_hill_round_res([[_, _, richmond_hill, Result], _], Result).
 rich_hill_round_res([_, [richmond_hill, Result, _, _]], Result).
 rich_hill_round_res([_, [_, _, richmond_hill, Result]], Result).
 rich_hill_round_res(_, n).
-
 
 
 time_solve :-
@@ -280,3 +263,4 @@ print_tournament([]).
 print_tournament([Round|Rest]) :-
     write('Round: '), write(Round), nl,
     print_tournament(Rest).
+
