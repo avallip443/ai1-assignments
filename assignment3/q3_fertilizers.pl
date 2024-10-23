@@ -189,9 +189,7 @@ cpu_time(Predicate) :-
     call(Predicate),          
     statistics(cputime, T2),  
     Time is T2 - T1,          
-    format('CPU time: ~w seconds~n', [Time]).  
     write('CPU time:'), write(Time), write(' seconds').
 
 
 % ['q3_fertilizers.pl'].
-
