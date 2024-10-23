@@ -118,9 +118,9 @@ solve([plant(1, F1, H1, Y1, W1), plant(2, F2, H2, Y2, W2), plant(3, F3, H3, Y3, 
     W3 < WeightManure,
 
     % condition 4: tallest plant does not have most yield or heaviest weight
-    max_list([H1, H2, H3, H4, H5], MaxHeight),
-    max_list([Y1, Y2, Y3, Y4, Y5], MaxYield),
-    max_list([W1, W2, W3, W4, W5], MaxWeight),
+    maxList([H1, H2, H3, H4, H5], MaxHeight),
+    maxList([Y1, Y2, Y3, Y4, Y5], MaxYield),
+    maxList([W1, W2, W3, W4, W5], MaxWeight),
 
     member(plant(_, _, MaxHeight, YieldTallest, WeightTallest), 
            [plant(1, F1, H1, Y1, W1), 
