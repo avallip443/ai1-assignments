@@ -150,7 +150,7 @@ solve([plant(1, F1, H1, Y1, W1), plant(2, F2, H2, Y2, W2), plant(3, F3, H3, Y3, 
     YieldEgg is Y1 / 2, WeightEgg is MaxWeight,
 
     % condition 6: seawedd-fertilized plant is tallest and has least yield
-    min_list([Y1, Y2, Y3, Y4, Y5], MinYield),
+    minList([Y1, Y2, Y3, Y4, Y5], MinYield),
     member(plant(_, seaweed, HeightSeaweed, YieldSeaweed, _), 
            [plant(1, F1, H1, Y1, W1), 
             plant(2, F2, H2, Y2, W2), 
@@ -160,7 +160,7 @@ solve([plant(1, F1, H1, Y1, W1), plant(2, F2, H2, Y2, W2), plant(3, F3, H3, Y3, 
     HeightSeaweed is MaxHeight, YieldSeaweed is MinYield,
 
     % condition 6: bone-meal-fertilized plant has lightest weight
-    min_list([W1, W2, W3, W4, W5], MinWeight),
+    minList([W1, W2, W3, W4, W5], MinWeight),
     member(plant(_, bone_meal, _, _, WeightBone), 
            [plant(1, F1, H1, Y1, W1), 
             plant(2, F2, H2, Y2, W2), 
@@ -193,3 +193,4 @@ cpu_time(Predicate) :-
 
 
 % ['q3_fertilizers.pl'].
+
